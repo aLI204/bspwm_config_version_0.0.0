@@ -1,0 +1,139 @@
+#! /bin/sh
+
+###############################
+#### default configuration ####
+###############################
+
+# sxhkd &
+/usr/bin/sparky-polkit &
+# tint2 &
+nm-applet &
+# nitrogen --restore &
+(sleep 5s && pnmixer) &
+conky --config=/opt/conky/conky-sparky-bspwm.conf &
+xfce4-power-manager &
+xautolock -time 10 -locker 'i3lock-fancy -g -p' &
+xss-lock -- i3lock-fancy -g -p &
+thunar --daemon &
+xdg-user-dirs-update &
+
+# bspc monitor -d I II III IV V VI VII VIII IX X
+# bspc monitor -d  2      8  10
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width	0
+bspc config window_gap		5
+
+bspc config split_ratio			0.50
+bspc config borderless_monocle   	true
+bspc config gapless_monocle      	true
+# bspc config focus_by_distance    	true
+# bspc config history_aware_focus  	true
+
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
+# bspc rule -a mplayer2 state=floating
+# bspc rule -a Screenkey manage=off
+
+##############################
+#### my own configuration ####
+##############################
+
+####################
+## autostart apps ##
+####################
+
+#########
+# conky #
+#########
+
+/usr/bin/conky -c /etc/conky/conky.conf &
+
+############
+# nitrogen #
+############
+
+# /usr/bin/nitrogen --restore &
+/usr/bin/nitrogen --set-scaled --random /home/guetal/Pictures/favorites_1 --save &
+
+#########
+# picom #
+#########
+
+/usr/bin/picom &
+
+#########
+# sxhkd #
+#########
+
+/usr/bin/sxhkd &
+
+#########
+# tint2 #
+#########
+
+# /usr/bin/tint2 &
+# /usr/bin/tint2 -c /home/guetal/.config/tint2/tint2-theme-collections/minima/minima.tint2rc &
+# /usr/bin/tint2 -c /home/guetal/.config/tint2/tint2-theme-collections/repentance/repentance.tint2rc &
+# /usr/bin/tint2 -c /home/guetal/.config/tint2/tint2-theme-collections/uncreative/uncreative.tint2rc &
+/usr/bin/tint2 -c /home/guetal/.config/tint2/tint2-theme-collections/raven/raven-orange.tint2rc &
+
+################
+## workspaces ##
+################
+
+#######
+# ws1 #
+#######
+
+bspc rule -a firefox-esr	desktop='^1' follow=on
+# bspc rule -a Pale moon	desktop='^1' follow=on
+bspc rule -a Surf		desktop='^1' follow=on
+
+#######
+# ws3 #
+#######
+
+bspc rule -a Mousepad 		desktop='^3' follow=on
+
+#######
+# ws4 #
+#######
+
+bspc rule -a Gimp		desktop='^4' follow=on
+
+#######
+# ws5 #
+#######
+
+bspc rule -a Terminator		desktop='^5' follow=on
+
+#######
+# ws6 #
+#######
+
+bspc rule -a Thunar		desktop='^6' follow=on
+
+#######
+# ws7 #
+#######
+
+bspc rule -a mpv		desktop='^7' follow=on
+# bspc rule -a vlc		desktop='^7' follow=on
+
+#######
+# ws8 #
+#######
+
+#######
+# ws9 #
+#######
+
+bspc rule -a Localsend_app	desktop='^9' follow=on
+bspc rule -a Lxappearance	desktop='^9' follow=on
+bspc rule -a Lxtask		desktop='^9' follow=on
+bspc rule -a Nitrogen		desktop='^9' follow=on
+bspc rule -a Psensor		desktop='^9' follow=on
+bspc rule -a Synaptic		desktop='^9' follow=on
+bspc rule -a transmission 	desktop='^9' follow=on
+bspc rule -a VirtualBox Manager desktop='^9' follow=on
